@@ -1,0 +1,29 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /${spring.application.name}
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        # 路由标识
+        - id: auth-provider
+          uri: lb://auth
+          # 设置断言
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+        - id: ums-provider
+          uri: lb://ums
+          # 设置断言
+          predicates:
+            - Path=/ums/**
+          filters:
+            - StripPrefix=1
