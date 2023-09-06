@@ -23,3 +23,16 @@ dubbo:
     address: nacos://${spring.cloud.nacos.discovery.server-addr}
     username: nacos
     password: nacos
+
+xxl:
+  job:
+    accessToken: default_token
+    admin:
+      addresses: http://127.0.0.1:8088/xxl-job-admin
+    executor:
+      appName: ums-job
+      address:
+      ip:
+      port: 9990
+      logpath:
+      logretentiondays: 30

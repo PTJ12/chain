@@ -43,6 +43,10 @@
             <groupId>top.xpit</groupId>
             <artifactId>chain-rpc</artifactId>
         </dependency>
+        <dependency>
+            <groupId>top.xpit</groupId>
+            <artifactId>common-job</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
