@@ -1,7 +1,6 @@
 package top.xpit.auth.service.impl;
 
 import org.apache.dubbo.config.annotation.DubboService;
-import org.springframework.stereotype.Service;
 import top.xpit.rpc.auth.AuthRpcService;
 
 /**

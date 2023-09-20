@@ -1,0 +1,40 @@
+server:
+  port: 9092
+
+nacos:
+  address: 192.168.220.125:8848
+  namespace: 88b8f583-43f9-4272-bd46-78a9f89c56e8
+  dubbo:
+    namespace: b9499178-c6c3-4d93-96bc-da0f6fe40fde
+
+spring:
+  application:
+    name: ums
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${nacos.address}
+        namespace: ${nacos.namespace}
+      config:
+        server-addr: ${nacos.address}
+        namespace: ${nacos.namespace}
+        file-extension: yml
+#        shared-configs: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+
+seata:
+  enabled: true
+  tx-service-group: default_tx_group # 事务分组名称，要和服务端对应
+  enable-auto-data-source-proxy: true
+  data-source-proxy-mode: AT
+  use-jdk-proxy: false
+  service:
+    vgroup-mapping:
+      mygroup: default_tx_group # key是事务分组名称 value要和服务端的机房名称保持一致
+    grouplist:
+      default: 192.168.220.125:8091
+    enable-degrade: false
+    disable-global-transaction: false
+
+

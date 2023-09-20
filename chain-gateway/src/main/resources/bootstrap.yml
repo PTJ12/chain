@@ -1,0 +1,22 @@
+server:
+  port: 9090
+
+nacos:
+  address: 192.168.220.125:8848
+  namespace: 88b8f583-43f9-4272-bd46-78a9f89c56e8
+
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${nacos.address}
+        namespace: ${nacos.namespace}
+      config:
+        server-addr: ${nacos.address}
+        namespace: ${nacos.namespace}
+        file-extension: yml
+#        shared-configs: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

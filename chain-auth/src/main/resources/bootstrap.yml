@@ -1,0 +1,26 @@
+server:
+  port: 9091
+
+nacos:
+  address: 192.168.220.125:8848
+  namespace: 88b8f583-43f9-4272-bd46-78a9f89c56e8
+  dubbo:
+    namespace: b9499178-c6c3-4d93-96bc-da0f6fe40fde
+
+
+spring:
+  application:
+    name: auth
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${nacos.address}
+        namespace: ${nacos.namespace}
+      config:
+        server-addr: ${nacos.address}
+        namespace: ${nacos.namespace}
+        file-extension: yml
+#        shared-configs: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+

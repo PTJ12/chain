@@ -13,8 +13,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>common-job</module>
-        <module>common-seta</module>
+        <module>common-seata</module>
         <module>common-redis</module>
+        <module>common-mybatis</module>
     </modules>
 
     <properties>
